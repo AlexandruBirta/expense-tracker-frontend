@@ -5,22 +5,26 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavComponent} from "./nav/nav.component";
-import {MatListModule} from "@angular/material/list";
-import {MatIconModule} from "@angular/material/icon";
+import {LoginComponent} from "./login/login.component";
+import {MatDividerModule} from "@angular/material/divider";
 import {MatButtonModule} from "@angular/material/button";
+import {MatListModule} from "@angular/material/list";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavComponent
+        NavComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+        MatButtonModule,
+        MatDividerModule,
         MatListModule,
-        MatIconModule,
-        MatButtonModule
+        MatSidenavModule
     ],
     providers: [],
     bootstrap: [AppComponent]

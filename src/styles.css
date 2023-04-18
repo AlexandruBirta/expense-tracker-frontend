@@ -13,15 +13,14 @@ nav {
   overflow: auto;
 }
 
-#background-image {
-  background-image: url(/./assets/landing-page-background.jpg);
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #464646;
+#expense-background {
+    background-image: url(/./assets/landing-page-background.jpg);
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 /*# sourceMappingURL=styles.css.map */
