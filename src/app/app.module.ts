@@ -10,6 +10,10 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
     declarations: [
@@ -24,7 +28,11 @@ import {MatSidenavModule} from "@angular/material/sidenav";
         MatButtonModule,
         MatDividerModule,
         MatListModule,
-        MatSidenavModule
+        MatSidenavModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatCardModule
     ],
     providers: [],
     bootstrap: [AppComponent]
