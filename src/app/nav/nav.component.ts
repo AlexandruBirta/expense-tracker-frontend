@@ -2,16 +2,16 @@ import {Component} from '@angular/core';
 import {LoginService} from "../login/login.service";
 
 @Component({
-  selector: 'expense-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+    selector: 'expense-nav',
+    templateUrl: './nav.component.html',
+    styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
 
-  loggedUserFirstName = sessionStorage.getItem('loggedUserFirstName');
-  loggedUserLastName = sessionStorage.getItem('loggedUserLastName');
+    loggedUserFirstName = sessionStorage.getItem('loggedUserFirstName');
+    loggedUserLastName = sessionStorage.getItem('loggedUserLastName');
 
-  constructor(public loginService: LoginService) {
-  }
+    constructor(public loginService: LoginService) {
+    }
 
 }

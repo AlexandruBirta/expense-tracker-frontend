@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {User} from "../model/user.interface";
 import {BehaviorSubject, Observable} from "rxjs";
+import {APP_CONFIG} from "../app-config/app-config.service";
 
 @Injectable({
     providedIn: 'root'
@@ -26,7 +27,7 @@ export class LoginService {
     }
 
     getUser(email: string) {
-        return this.expenseTrackerClient.get<User>(`http://localhost:8080/v1/users/email/${email}`).toPromise();
+        return this.expenseTrackerClient.get<User>(`${APP_CONFIG.apiBaseUrl}/${APP_CONFIG.getUserByEmailPath}/${email}`).toPromise();
     }
 
     areCredentialsValid(user: User | undefined, email: string, password: string): boolean {
@@ -46,6 +47,7 @@ export class LoginService {
         }
 
         console.log(`User is logged in: ${this.isLoggedIn}`);
+
         return this.isLoggedIn;
 
     }

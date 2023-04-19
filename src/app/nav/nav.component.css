@@ -1,11 +1,11 @@
 .nav-right-button {
-  display: flex;
-  width: 490px;
-  position: absolute;
-  right: 0;
-  margin-right: 10px;
-  align-items: flex-end;
-  justify-content: flex-end;
+    display: flex;
+    width: 490px;
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 .trips-button {

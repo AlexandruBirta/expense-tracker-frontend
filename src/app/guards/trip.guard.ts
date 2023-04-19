@@ -4,17 +4,17 @@ import {Observable} from 'rxjs';
 import {LoginService} from "../login/login.service";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class TripGuard implements CanActivate {
 
-  constructor(private loginService: LoginService) {
-  }
+    constructor(private loginService: LoginService) {
+    }
 
-  canActivate(
-      route: ActivatedRouteSnapshot,
-      state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.loginService.isLoggedIn;
-  }
+    canActivate(
+        route: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+        return this.loginService.isLoggedIn;
+    }
 
 }

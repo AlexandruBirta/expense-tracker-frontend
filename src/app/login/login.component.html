@@ -9,39 +9,41 @@
             <mat-form-field class="example-full-width">
                 <mat-label>Email</mat-label>
                 <input
+                        autocomplete="on"
                         formControlName="email"
                         matInput
                         placeholder="Email"
                         type="email"
-                        autocomplete="on"
                 >
             </mat-form-field>
             <br>
             <mat-form-field class="example-full-width">
                 <mat-label>Password</mat-label>
                 <input
+                        autocomplete="on"
                         formControlName="password"
                         matInput
                         placeholder="Password"
                         type="password"
-                        autocomplete="on"
                 >
             </mat-form-field>
         </div>
 
         <div>
             <button
-                    class="login-button"
                     [disabled]="loginForm.invalid"
+                    class="login-button"
                     color="primary"
                     mat-raised-button
             >Login
             </button>
             <button
-                    class="login-button"
+                    type="button"
                     [disabled]="loginForm.invalid"
+                    class="login-button"
                     color="primary"
                     mat-raised-button
+                    routerLink="../register"
             >Register
             </button>
         </div>

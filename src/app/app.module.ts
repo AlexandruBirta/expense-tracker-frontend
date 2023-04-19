@@ -17,6 +17,7 @@ import {MatCardModule} from "@angular/material/card";
 import {HttpClientModule} from "@angular/common/http";
 import {TripComponent} from './trip/trip.component';
 import {RegisterComponent} from './register/register.component';
+import {APP_CONFIG, APP_CONFIG_SERVICE} from "./app-config/app-config.service";
 
 @NgModule({
     declarations: [
@@ -40,7 +41,11 @@ import {RegisterComponent} from './register/register.component';
         MatInputModule,
         MatCardModule
     ],
-    providers: [],
+    providers: [
+        {
+            provide: APP_CONFIG_SERVICE,
+            useValue: APP_CONFIG
+        }],
     bootstrap: [AppComponent]
 })
 export class AppModule {

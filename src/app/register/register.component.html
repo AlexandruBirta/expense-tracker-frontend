@@ -6,45 +6,60 @@
     >
 
         <div>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="register-field">
+                <mat-label>First Name</mat-label>
+                <input
+                        autocomplete="on"
+                        formControlName="firstName"
+                        matInput
+                        placeholder="First Name"
+                        type="text"
+                >
+            </mat-form-field>
+            <mat-form-field class="register-field">
+                <mat-label>Last Name</mat-label>
+                <input
+                        autocomplete="on"
+                        formControlName="lastName"
+                        matInput
+                        placeholder="Last Name"
+                        type="text"
+                >
+            </mat-form-field>
+            <mat-form-field class="register-field">
                 <mat-label>Email</mat-label>
                 <input
+                        autocomplete="on"
                         formControlName="email"
                         matInput
                         placeholder="Email"
                         type="email"
-                        autocomplete="on"
                 >
             </mat-form-field>
             <br>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="register-field">
                 <mat-label>Password</mat-label>
                 <input
+                        autocomplete="on"
                         formControlName="password"
                         matInput
                         placeholder="Password"
                         type="password"
-                        autocomplete="on"
                 >
             </mat-form-field>
         </div>
 
-        <!--        <div>-->
-        <!--            <button-->
-        <!--                    class="login-button"-->
-        <!--                    [disabled]="registerForm.invalid"-->
-        <!--                    color="primary"-->
-        <!--                    mat-raised-button-->
-        <!--            >Login-->
-        <!--            </button>-->
-        <!--            <button-->
-        <!--                    class="login-button"-->
-        <!--                    [disabled]="registerForm.invalid"-->
-        <!--                    color="primary"-->
-        <!--                    mat-raised-button-->
-        <!--            >Register-->
-        <!--            </button>-->
-        <!--        </div>-->
+        <div>
+            <button
+                    class="register-button"
+                    [disabled]="registerForm.invalid"
+                    (click)="register()"
+                    color="primary"
+                    mat-raised-button
+                    routerLink="../login"
+            >Register
+            </button>
+        </div>
 
 
     </form>
