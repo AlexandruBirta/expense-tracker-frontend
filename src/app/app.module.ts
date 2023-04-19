@@ -14,17 +14,23 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
+import {HttpClientModule} from "@angular/common/http";
+import {TripComponent} from './trip/trip.component';
+import {RegisterComponent} from './register/register.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavComponent,
-        LoginComponent
+        LoginComponent,
+        TripComponent,
+        RegisterComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+        HttpClientModule,
         MatButtonModule,
         MatDividerModule,
         MatListModule,

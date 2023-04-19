@@ -1,7 +1,7 @@
-<mat-card class="login-center-container">
+<mat-card class="register-center-container">
     <form
-            (ngSubmit)="login()"
-            [formGroup]="loginForm"
+            (ngSubmit)="register()"
+            [formGroup]="registerForm"
             class="example-form"
     >
 
@@ -29,22 +29,22 @@
             </mat-form-field>
         </div>
 
-        <div>
-            <button
-                    class="login-button"
-                    [disabled]="loginForm.invalid"
-                    color="primary"
-                    mat-raised-button
-            >Login
-            </button>
-            <button
-                    class="login-button"
-                    [disabled]="loginForm.invalid"
-                    color="primary"
-                    mat-raised-button
-            >Register
-            </button>
-        </div>
+        <!--        <div>-->
+        <!--            <button-->
+        <!--                    class="login-button"-->
+        <!--                    [disabled]="registerForm.invalid"-->
+        <!--                    color="primary"-->
+        <!--                    mat-raised-button-->
+        <!--            >Login-->
+        <!--            </button>-->
+        <!--            <button-->
+        <!--                    class="login-button"-->
+        <!--                    [disabled]="registerForm.invalid"-->
+        <!--                    color="primary"-->
+        <!--                    mat-raised-button-->
+        <!--            >Register-->
+        <!--            </button>-->
+        <!--        </div>-->
 
 
     </form>

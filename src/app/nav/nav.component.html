@@ -5,16 +5,24 @@
                 class="trips-button"
                 color="accent"
                 mat-button
+                routerLink="trip"
         >
             My Trips
         </button>
     </div>
 
     <div class="nav-right-button">
+        <span
+                class="navbar-text"
+                *ngIf="loginService.isLoggedIn"
+        >
+        Hello {{loggedUserFirstName}} {{loggedUserLastName}}
+        </span>
         <button
 
                 color="primary"
                 mat-button
+                routerLink="register"
         >
             Register
         </button>
