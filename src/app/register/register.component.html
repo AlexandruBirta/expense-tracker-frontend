@@ -51,9 +51,9 @@
 
         <div>
             <button
-                    class="register-button"
-                    [disabled]="registerForm.invalid"
                     (click)="register()"
+                    [disabled]="registerForm.invalid"
+                    class="register-button"
                     color="primary"
                     mat-raised-button
                     routerLink="../login"

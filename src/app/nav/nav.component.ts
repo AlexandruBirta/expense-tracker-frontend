@@ -11,7 +11,8 @@ export class NavComponent {
     loggedUserFirstName = sessionStorage.getItem('loggedUserFirstName');
     loggedUserLastName = sessionStorage.getItem('loggedUserLastName');
 
-    constructor(public loginService: LoginService) {
+    constructor(public loginService: LoginService
+    ) {
     }
 
 }
