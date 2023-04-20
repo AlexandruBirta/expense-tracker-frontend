@@ -14,8 +14,8 @@
         >No trips available</span>
         <mat-selection-list [multiple]="false">
             <mat-list-option
-                    *ngFor="let trip of trips"
                     (click)="getExpenses(trip.tripId)"
+                    *ngFor="let trip of trips"
             >
                 {{trip.description}}
             </mat-list-option>
@@ -44,90 +44,90 @@
     <mat-drawer-content>
 
         <table
-                mat-table
                 [dataSource]="expenses"
                 class="mat-elevation-z8"
+                mat-table
         >
 
             <ng-container matColumnDef="expenseId">
                 <th
-                        mat-header-cell
                         *matHeaderCellDef
+                        mat-header-cell
                 > ID
                 </th>
                 <td
-                        mat-cell
                         *matCellDef="let expense"
+                        mat-cell
                 > {{expense.expenseId}} </td>
             </ng-container>
 
             <ng-container matColumnDef="amountPaid">
                 <th
-                        mat-header-cell
                         *matHeaderCellDef
+                        mat-header-cell
                 > Amount Paid
                 </th>
                 <td
-                        mat-cell
                         *matCellDef="let expense"
+                        mat-cell
                 > {{expense.amountPaid}} </td>
             </ng-container>
 
             <ng-container matColumnDef="description">
                 <th
-                        mat-header-cell
                         *matHeaderCellDef
+                        mat-header-cell
                 > Description
                 </th>
                 <td
-                        mat-cell
                         *matCellDef="let expense"
+                        mat-cell
                 > {{expense.description}} </td>
             </ng-container>
 
             <ng-container matColumnDef="expenseType">
                 <th
-                        mat-header-cell
                         *matHeaderCellDef
+                        mat-header-cell
                 > Type
                 </th>
                 <td
-                        mat-cell
                         *matCellDef="let expense"
+                        mat-cell
                 > {{expense.expenseType}} </td>
             </ng-container>
 
             <ng-container matColumnDef="insertedDate">
                 <th
-                        mat-header-cell
                         *matHeaderCellDef
+                        mat-header-cell
                 > Inserted Date
                 </th>
                 <td
-                        mat-cell
                         *matCellDef="let expense"
+                        mat-cell
                 > {{expense.insertedDate}} </td>
             </ng-container>
 
             <ng-container matColumnDef="updatedDate">
                 <th
-                        mat-header-cell
                         *matHeaderCellDef
+                        mat-header-cell
                 > Updated Date
                 </th>
                 <td
-                        mat-cell
                         *matCellDef="let expense"
+                        mat-cell
                 > {{expense.updatedDate}} </td>
             </ng-container>
 
             <tr
-                    mat-header-row
                     *matHeaderRowDef="expenseTableColumns"
+                    mat-header-row
             ></tr>
             <tr
-                    mat-row
                     *matRowDef="let row; columns: expenseTableColumns;"
+                    mat-row
             ></tr>
 
         </table>

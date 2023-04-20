@@ -5,32 +5,32 @@ import {Trip} from "../model/trip.interface";
 import {Expense} from "../model/expense.interface";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class TripService {
 
-  constructor(private expenseTrackerClient: HttpClient) {
-  }
-
-  getTrips(email: string | null) {
-
-    if (email === null) {
-      return null;
+    constructor(private expenseTrackerClient: HttpClient) {
     }
 
-    return this.expenseTrackerClient.get<Trip[]>(`${APP_CONFIG.apiBaseUrl}/${APP_CONFIG.usersPath}/${email}/${APP_CONFIG.tripsPath}`);
+    getTrips(email: string | null) {
 
-  }
+        if (email === null) {
+            return null;
+        }
 
-  getExpenses(tripId: number | null) {
+        return this.expenseTrackerClient.get<Trip[]>(`${APP_CONFIG.apiBaseUrl}/${APP_CONFIG.usersPath}/${email}/${APP_CONFIG.tripsPath}`);
 
-    if (tripId === null) {
-      return null;
     }
 
-    return this.expenseTrackerClient.get<Expense[]>(`${APP_CONFIG.apiBaseUrl}/${APP_CONFIG.tripsPath}/${tripId}/${APP_CONFIG.expensesPath}`);
+    getExpenses(tripId: number | null) {
 
-  }
+        if (tripId === null) {
+            return null;
+        }
+
+        return this.expenseTrackerClient.get<Expense[]>(`${APP_CONFIG.apiBaseUrl}/${APP_CONFIG.tripsPath}/${tripId}/${APP_CONFIG.expensesPath}`);
+
+    }
 
 
 }
