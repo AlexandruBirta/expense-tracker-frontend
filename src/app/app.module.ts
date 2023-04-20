@@ -18,6 +18,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {TripComponent} from './trip/trip.component';
 import {RegisterComponent} from './register/register.component';
 import {APP_CONFIG, APP_CONFIG_SERVICE} from "./app-config/app-config.service";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ import {APP_CONFIG, APP_CONFIG_SERVICE} from "./app-config/app-config.service";
         ReactiveFormsModule,
         MatFormFieldModule,
         MatInputModule,
-        MatCardModule
+        MatCardModule,
+        MatButtonToggleModule
     ],
     providers: [
         {

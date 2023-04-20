@@ -26,4 +26,8 @@ export class TripComponent implements OnInit {
         this.getTrips();
     }
 
+    getChange() {
+        console.log('option selected')
+    }
+
 }

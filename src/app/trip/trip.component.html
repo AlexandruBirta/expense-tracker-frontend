@@ -4,14 +4,29 @@
             mode="side"
             opened
     >
-        <span *ngIf="trips.length === 0">No trips available</span>
+        <span *ngIf="loggedUserEmail === null">Log in to access trips!</span>
+        <span *ngIf="trips.length === 0 && loggedUserEmail !== null">No trips available</span>
         <mat-selection-list [multiple]="false">
-            <mat-list-option *ngFor="let trip of trips">
+            <mat-list-option
+                    *ngFor="let trip of trips"
+                    (click)="getChange()"
+            >
                 {{trip.description}}
             </mat-list-option>
         </mat-selection-list>
+        <button
+                color="primary"
+                mat-raised-button
+                type="button"
+        >Add Trip
+        </button>
+
+
     </mat-drawer>
     <mat-drawer-content>
-        Expense List
+        <mat-list role="list">
+            <mat-list-item role="listitem">Expense 1</mat-list-item>
+        </mat-list>
     </mat-drawer-content>
+
 </mat-drawer-container>
