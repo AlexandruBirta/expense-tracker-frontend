@@ -1,5 +1,5 @@
 export interface AppConfig {
     apiBaseUrl: string;
-    getUserByEmailPath: string;
-    postUserPath: string;
+    usersPath: string;
+    tripsPath: string;
 }

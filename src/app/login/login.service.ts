@@ -27,7 +27,7 @@ export class LoginService {
     }
 
     getUser(email: string) {
-        return this.expenseTrackerClient.get<User>(`${APP_CONFIG.apiBaseUrl}/${APP_CONFIG.getUserByEmailPath}/${email}`).toPromise();
+        return this.expenseTrackerClient.get<User>(`${APP_CONFIG.apiBaseUrl}/${APP_CONFIG.usersPath}/email/${email}`).toPromise();
     }
 
     areCredentialsValid(user: User | undefined, email: string, password: string): boolean {
@@ -44,6 +44,7 @@ export class LoginService {
             this.isLoggedIn = true;
             sessionStorage.setItem('loggedUserFirstName', <string>user?.firstName);
             sessionStorage.setItem('loggedUserLastName', <string>user?.lastName);
+            sessionStorage.setItem('loggedUserEmail', <string>user?.email);
         }
 
         console.log(`User is logged in: ${this.isLoggedIn}`);

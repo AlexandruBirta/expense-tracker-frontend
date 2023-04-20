@@ -1,1 +1,12 @@
+.trips-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #555;
+}
+
+.trip-select-drawer {
+    width: 25%;
+}
+
 /*# sourceMappingURL=trip.component.css.map */

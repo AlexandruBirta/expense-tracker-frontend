@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
     apiBaseUrl: 'http://localhost:8080/v1',
-    getUserByEmailPath: 'users/email',
-    postUserPath: 'users'
+    usersPath: 'users',
+    tripsPath: 'trips'
 };

@@ -1,1 +1,17 @@
-<p>trip works!</p>
+<mat-drawer-container class="trips-container">
+    <mat-drawer
+            class="trip-select-drawer"
+            mode="side"
+            opened
+    >
+        <span *ngIf="trips.length === 0">No trips available</span>
+        <mat-selection-list [multiple]="false">
+            <mat-list-option *ngFor="let trip of trips">
+                {{trip.description}}
+            </mat-list-option>
+        </mat-selection-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        Expense List
+    </mat-drawer-content>
+</mat-drawer-container>

@@ -3,7 +3,6 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {TripComponent} from "./trip/trip.component";
-import {TripGuard} from "./guards/trip.guard";
 
 const routes: Routes = [
     {
@@ -17,8 +16,9 @@ const routes: Routes = [
     {
         path: 'trip',
         component: TripComponent,
-        canActivate: [TripGuard],
-        canLoad: [TripGuard]
+        //TODO REACTIVATE GUARDS
+        // canActivate: [TripGuard],
+        // canLoad: [TripGuard]
     },
     {
         path: '',

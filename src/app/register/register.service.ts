@@ -31,7 +31,7 @@ export class RegisterService {
 
         console.log(this.user);
 
-        this.expenseTrackerClient.post(`${APP_CONFIG.apiBaseUrl}/${APP_CONFIG.postUserPath}`, this.user).subscribe(() => {
+        this.expenseTrackerClient.post(`${APP_CONFIG.apiBaseUrl}/${APP_CONFIG.usersPath}`, this.user).subscribe(() => {
         });
     }
 
