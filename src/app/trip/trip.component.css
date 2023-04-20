@@ -9,4 +9,13 @@
     width: 25%;
 }
 
+.trip-span {
+    margin-left: 5px;
+}
+
+.trip-button {
+    width: 150px;
+    margin-right: 5px;
+}
+
 /*# sourceMappingURL=trip.component.css.map */

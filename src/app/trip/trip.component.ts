@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TripService} from "./trip.service";
 import {Trip} from "../model/trip.interface";
+import {Expense} from "../model/expense.interface";
 
 @Component({
     selector: 'expense-trip',
@@ -11,7 +12,10 @@ export class TripComponent implements OnInit {
 
     loggedUserEmail: string | null = sessionStorage.getItem('loggedUserEmail');
 
+    expenseTableColumns: string[] = ['expenseId', 'amountPaid', 'description', 'expenseType', 'insertedDate', 'updatedDate'];
+
     trips: Trip[] = [];
+    expenses: Expense[] = [];
 
     constructor(private tripService: TripService) {
     }
@@ -22,12 +26,15 @@ export class TripComponent implements OnInit {
         });
     }
 
-    ngOnInit(): void {
-        this.getTrips();
+    getExpenses(tripId: number) {
+        this.tripService.getExpenses(tripId)?.subscribe(data => {
+            console.log(data);
+            this.expenses = data;
+        });
     }
 
-    getChange() {
-        console.log('option selected')
+    ngOnInit(): void {
+        this.getTrips();
     }
 
 }

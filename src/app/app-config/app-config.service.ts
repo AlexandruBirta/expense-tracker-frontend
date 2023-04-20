@@ -7,5 +7,6 @@ export const APP_CONFIG_SERVICE = new InjectionToken<AppConfig>('app.config');
 export const APP_CONFIG: AppConfig = {
     apiBaseUrl: environment.apiBaseUrl,
     usersPath: environment.usersPath,
-    tripsPath: environment.tripsPath
+    tripsPath: environment.tripsPath,
+    expensesPath: environment.expensesPath
 };

@@ -19,6 +19,7 @@ import {TripComponent} from './trip/trip.component';
 import {RegisterComponent} from './register/register.component';
 import {APP_CONFIG, APP_CONFIG_SERVICE} from "./app-config/app-config.service";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
         MatFormFieldModule,
         MatInputModule,
         MatCardModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        MatTableModule
     ],
     providers: [
         {
