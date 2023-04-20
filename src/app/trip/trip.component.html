@@ -43,11 +43,39 @@
     </mat-drawer>
     <mat-drawer-content>
 
+
         <table
                 [dataSource]="expenses"
                 class="mat-elevation-z8"
                 mat-table
         >
+            <ng-container matColumnDef="expense-title">
+                <th
+                        mat-header-cell
+                        *matHeaderCellDef
+                >
+                    My Expenses
+                </th>
+            </ng-container>
+
+            <tr
+                    mat-header-row
+                    *matHeaderRowDef="['expense-title']"
+            >
+            </tr>
+        </table>
+
+        <table
+                [dataSource]="expenses"
+                class="mat-elevation-z8"
+                mat-table
+        >
+
+            <th
+                    *matHeaderCellDef
+                    mat-header-cell
+            > ID
+            </th>
 
             <ng-container matColumnDef="expenseId">
                 <th
@@ -59,6 +87,11 @@
                         *matCellDef="let expense"
                         mat-cell
                 > {{expense.expenseId}} </td>
+                <td
+                        mat-footer-cell
+                        *matFooterCellDef
+                > Total
+                </td>
             </ng-container>
 
             <ng-container matColumnDef="amountPaid">
@@ -70,7 +103,15 @@
                 <td
                         *matCellDef="let expense"
                         mat-cell
-                > {{expense.amountPaid}} </td>
+                > {{expense.amountPaid | currency}}
+                </td>
+                <td
+                        mat-footer-cell
+                        *matFooterCellDef
+                >
+                    {{getTotalCost() | currency}}
+                </td>
+
             </ng-container>
 
             <ng-container matColumnDef="description">
@@ -121,6 +162,7 @@
                 > {{expense.updatedDate}} </td>
             </ng-container>
 
+
             <tr
                     *matHeaderRowDef="expenseTableColumns"
                     mat-header-row
@@ -129,6 +171,11 @@
                     *matRowDef="let row; columns: expenseTableColumns;"
                     mat-row
             ></tr>
+            <tr
+                    mat-footer-row
+                    *matFooterRowDef="['expenseId', 'amountPaid']"
+            ></tr>
+
 
         </table>
 

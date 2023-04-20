@@ -37,4 +37,8 @@ export class TripComponent implements OnInit {
         this.getTrips();
     }
 
+    getTotalCost() {
+        return this.expenses.map(t => t.amountPaid).reduce((acc, value) => acc + value, 0);
+    }
+
 }

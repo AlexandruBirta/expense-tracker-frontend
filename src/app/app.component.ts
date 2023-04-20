@@ -1,15 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 
 @Component({
     selector: 'expense-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnDestroy {
 
     title = 'expense-tracker-frontend';
 
-    ngOnInit(): void {
+    ngOnDestroy(): void {
         sessionStorage.clear();
     }
 
