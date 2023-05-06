@@ -28,8 +28,36 @@
                     color="primary"
                     mat-raised-button
                     type="button"
+                    (click)="openModal(template)"
             >Add Trip
             </button>
+
+          <ng-template #template>
+            <div class="modal-header bg-dark bg-opacity-75 text-light">
+              <h4 class="modal-title">Add Trip</h4>
+              <button type="button" class="close bg-dark text-light" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body bg-dark bg-opacity-75 text-light">
+              <div>
+                <label for="initiatedByUserId">Initiated By User ID:</label>
+                <input type="number" id="initiatedByUserId" [(ngModel)]="initiatedByUserId" required>
+              </div>
+              <div>
+                <label for="groupSize">Group Size:</label>
+                <input type="number" id="groupSize" [(ngModel)]="groupSize" required>
+              </div>
+              <div>
+                <label for="description">Description:</label>
+                <input type="text" id="description" [(ngModel)]="description" required>
+              </div>
+            </div>
+            <div class="modal-footer bg-dark bg-opacity-75 text-light">
+              <button class="btn btn-primary" (click)="createTrip()">Create</button>
+              <button class="btn btn-secondary" (click)="modalRef.hide()">Cancel</button>
+            </div>
+          </ng-template>
 
             <button
                     class="trip-button"
