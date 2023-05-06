@@ -10,7 +10,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatButtonModule} from "@angular/material/button";
 import {MatListModule} from "@angular/material/list";
 import {MatSidenavModule} from "@angular/material/sidenav";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
@@ -20,6 +20,7 @@ import {RegisterComponent} from './register/register.component';
 import {APP_CONFIG, APP_CONFIG_SERVICE} from "./app-config/app-config.service";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatTableModule} from "@angular/material/table";
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
     declarations: [
@@ -29,22 +30,24 @@ import {MatTableModule} from "@angular/material/table";
         TripComponent,
         RegisterComponent
     ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatButtonModule,
-        MatDividerModule,
-        MatListModule,
-        MatSidenavModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatCardModule,
-        MatButtonToggleModule,
-        MatTableModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ModalModule.forRoot(),
+    HttpClientModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatListModule,
+    MatSidenavModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonToggleModule,
+    MatTableModule,
+    FormsModule
+  ],
     providers: [
         {
             provide: APP_CONFIG_SERVICE,
