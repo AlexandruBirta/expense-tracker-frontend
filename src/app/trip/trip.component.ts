@@ -88,6 +88,6 @@ export class TripComponent implements OnInit {
         error => {
           console.error('Error creating expense:', error);
         }
-      );
+      ); 
     }
 }
