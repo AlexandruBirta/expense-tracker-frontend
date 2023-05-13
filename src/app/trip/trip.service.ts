@@ -36,4 +36,8 @@ export class TripService {
       return this.expenseTrackerClient.post<any>('http://localhost:8080/v1/trips', tripData);
     }
 
+    createExpense(expenseData: any) {
+        return this.expenseTrackerClient.post<any>('http://localhost:8080/v1/expenses', expenseData);
+      }
+
 }

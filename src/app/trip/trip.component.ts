@@ -16,13 +16,16 @@ export class TripComponent implements OnInit {
     initiatedByUserId: number = 0;
     groupSize: number = 0;
     description: string = '';
+    amountPaid: number = 0;
+    expenseDescription: string = '';
+    expenseType: number = 1;
 
     expenseTableColumns: string[] = ['expenseId', 'amountPaid', 'description', 'expenseType', 'insertedDate', 'updatedDate'];
 
     trips: Trip[] = [];
     expenses: Expense[] = [];
 
-    constructor(private tripService: TripService, private modalService: BsModalService) {
+    constructor(private expenseService: TripService, private tripService: TripService, private modalService: BsModalService) {
     }
 
     openModal(template: TemplateRef<any>) {
@@ -65,6 +68,25 @@ export class TripComponent implements OnInit {
         },
         error => {
           console.error('Error creating trip:', error);
+        }
+      );
+    }
+
+    createExpense() {
+      const expenseData = {
+        amountPaid: this.amountPaid,
+        expenseDescription: this.expenseDescription,
+        expenseType: this.expenseType
+      };
+
+      this.tripService.createExpense(expenseData).subscribe(
+        response => {
+          console.log('Expense created successfully:', response);
+          this.expenses.push(response);
+          this.modalRef.hide();
+        },
+        error => {
+          console.error('Error creating expense:', error);
         }
       );
     }
