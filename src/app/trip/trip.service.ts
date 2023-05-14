@@ -33,11 +33,11 @@ export class TripService {
     }
 
     createTrip(tripData: any) {
-      return this.expenseTrackerClient.post<any>('http://localhost:8080/v1/trips', tripData);
+        return this.expenseTrackerClient.post<any>('http://localhost:8080/v1/trips', tripData);
     }
 
-    createExpense(expenseData: any) {
-        return this.expenseTrackerClient.post<any>('http://localhost:8080/v1/expenses', expenseData); 
-      }
+    createExpense(tripId: any[], userIds: number[], expenseData: any) {
+        return this.expenseTrackerClient.post<any>(`${APP_CONFIG.apiBaseUrl}/${APP_CONFIG.tripsPath}/${tripId.at(0)}/${APP_CONFIG.expensesPath}?userIds=${userIds}`, expenseData);
+    }
 
 }

@@ -2,7 +2,8 @@ import {Component, OnInit, TemplateRef} from '@angular/core';
 import {TripService} from "./trip.service";
 import {Trip} from "../model/trip.interface";
 import {Expense} from "../model/expense.interface";
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {MatSelectionList} from "@angular/material/list";
 
 @Component({
     selector: 'expense-trip',
@@ -22,14 +23,17 @@ export class TripComponent implements OnInit {
 
     expenseTableColumns: string[] = ['expenseId', 'amountPaid', 'description', 'expenseType', 'insertedDate', 'updatedDate'];
 
+    selectedTripId!: any[];
     trips: Trip[] = [];
     expenses: Expense[] = [];
+    selectedTrip: any;
+    userIds: number[] = [];
 
     constructor(private expenseService: TripService, private tripService: TripService, private modalService: BsModalService) {
     }
 
     openModal(template: TemplateRef<any>) {
-      this.modalRef = this.modalService.show(template);
+        this.modalRef = this.modalService.show(template);
     }
 
     getTrips() {
@@ -38,11 +42,19 @@ export class TripComponent implements OnInit {
         });
     }
 
-    getExpenses(tripId: number) {
+    getExpenses(tripId: number, list: MatSelectionList, $event: MouseEvent) {
+
+        $event.preventDefault();
+
         this.tripService.getExpenses(tripId)?.subscribe(data => {
             console.log(data);
             this.expenses = data;
         });
+
+        this.selectedTripId = list.selectedOptions.selected.map(item => item.value);
+
+        console.log(this.selectedTripId);
+
     }
 
     ngOnInit(): void {
@@ -79,15 +91,15 @@ export class TripComponent implements OnInit {
         expenseType: this.expenseType
       };
 
-      this.tripService.createExpense(expenseData).subscribe(
-        response => {
-          console.log('Expense created successfully:', response);
-          this.expenses.push(response);
-          this.modalRef.hide();
-        },
-        error => {
-          console.error('Error creating expense:', error);
-        }
-      ); 
+        this.tripService.createExpense(this.selectedTripId, this.userIds, expenseData).subscribe(
+            response => {
+                console.log('Expense created successfully:', response);
+                this.expenses.push(response);
+                this.modalRef.hide();
+            },
+            error => {
+                console.error('Error creating expense:', error);
+            }
+        );
     }
 }

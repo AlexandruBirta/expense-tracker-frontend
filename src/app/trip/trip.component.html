@@ -12,10 +12,14 @@
                 *ngIf="trips.length === 0 && loggedUserEmail !== null"
                 class="trip-span"
         >No trips available</span>
-        <mat-selection-list [multiple]="false">
+        <mat-selection-list
+                [multiple]="false"
+                #list
+        >
             <mat-list-option
-                    (click)="getExpenses(trip.tripId)"
+                    (click)="getExpenses(trip.tripId, list, $event)"
                     *ngFor="let trip of trips"
+                    [value]="trip.tripId"
             >
                 {{trip.description}}
             </mat-list-option>
@@ -32,32 +36,60 @@
             >Add Trip
             </button>
 
-          <ng-template #template>
-            <div class="modal-header bg-dark bg-opacity-75 text-light">
-              <h4 class="modal-title">Add Trip</h4>
-              <button type="button" class="close bg-dark text-light" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body bg-dark bg-opacity-75 text-light">
-              <div>
-                <label for="initiatedByUserId">Initiated By User ID:</label>
-                <input type="number" id="initiatedByUserId" [(ngModel)]="initiatedByUserId" required>
-              </div>
-              <div>
-                <label for="groupSize">Group Size:</label>
-                <input type="number" id="groupSize" [(ngModel)]="groupSize" required>
-              </div>
-              <div>
-                <label for="description">Description:</label>
-                <input type="text" id="description" [(ngModel)]="description" required>
-              </div>
-            </div>
-            <div class="modal-footer bg-dark bg-opacity-75 text-light">
-              <button class="btn btn-primary" (click)="createTrip()">Create</button>
-              <button class="btn btn-secondary" (click)="modalRef.hide()">Cancel</button>
-            </div>
-          </ng-template>
+            <ng-template #template>
+                <div class="modal-header bg-dark bg-opacity-75 text-light">
+                    <h4 class="modal-title">Add Trip</h4>
+                    <button
+                            type="button"
+                            class="close bg-dark text-light"
+                            aria-label="Close"
+                            (click)="modalRef.hide()"
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body bg-dark bg-opacity-75 text-light">
+                    <div>
+                        <label for="initiatedByUserId">Initiated By User ID:</label>
+                        <input
+                                type="number"
+                                id="initiatedByUserId"
+                                [(ngModel)]="initiatedByUserId"
+                                required
+                        >
+                    </div>
+                    <div>
+                        <label for="groupSize">Group Size:</label>
+                        <input
+                                type="number"
+                                id="groupSize"
+                                [(ngModel)]="groupSize"
+                                required
+                        >
+                    </div>
+                    <div>
+                        <label for="description">Description:</label>
+                        <input
+                                type="text"
+                                id="description"
+                                [(ngModel)]="description"
+                                required
+                        >
+                    </div>
+                </div>
+                <div class="modal-footer bg-dark bg-opacity-75 text-light">
+                    <button
+                            class="btn btn-primary"
+                            (click)="createTrip()"
+                    >Create
+                    </button>
+                    <button
+                            class="btn btn-secondary"
+                            (click)="modalRef.hide()"
+                    >Cancel
+                    </button>
+                </div>
+            </ng-template>
 
             <button
                     class="trip-button"
@@ -70,31 +102,73 @@
 
             <ng-template #expenseTemplate>
                 <div class="modal-header bg-dark bg-opacity-75 text-light">
-                  <h4 class="modal-title">Add Expense</h4>
-                  <button type="button" class="close bg-dark text-light" aria-label="Close" (click)="modalRef.hide()">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                    <h4 class="modal-title">Add Expense</h4>
+                    <button
+                            type="button"
+                            class="close bg-dark text-light"
+                            aria-label="Close"
+                            (click)="modalRef.hide()"
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body bg-dark bg-opacity-75 text-light">
-                  <div>
-                    <label for="amountPaid">Amount Paid:</label>
-                    <input type="number" id="amountPaid" [(ngModel)]="amountPaid" required>
-                  </div>
-                  <div>
-                    <label for="expenseDescription">Description:</label>
-                    <input type="text" id="expenseDescription" [(ngModel)]="expenseDescription" required>
-                  </div>
-                  <div>
-                    <label for="expenseType">Type:</label>
-                    <input type="number" id="expenseType" [(ngModel)]="expenseType" required>
-                  </div>
+                    <div>
+                        <label for="amountPaid">Amount Paid:</label>
+                        <input
+                                type="number"
+                                id="amountPaid"
+                                [(ngModel)]="amountPaid"
+                                required
+                        >
+                    </div>
+                    <div>
+                        <label for="expenseDescription">Description:</label>
+                        <input
+                                type="text"
+                                id="expenseDescription"
+                                [(ngModel)]="expenseDescription"
+                                required
+                        >
+                    </div>
+                    <div>
+                        <label for="expenseTypes">Type:</label>
+                        <select
+                                id="expenseTypes"
+                                name="expenseTypes"
+                                [(ngModel)]="expenseType"
+                        >
+                            <option
+                                    value="personal"
+                            >Personal
+                            </option>
+                            <option value="group">Group</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="userIds">User IDs:</label>
+                        <input
+                                type="text"
+                                id="userIds"
+                                [(ngModel)]="userIds"
+                                required
+                        >
+                    </div>
                 </div>
                 <div class="modal-footer bg-dark bg-opacity-75 text-light">
-                  <button class="btn btn-primary" (click)="createExpense()">Create</button>
-                  <button class="btn btn-secondary" (click)="modalRef.hide()">Cancel</button>
+                    <button
+                            class="btn btn-primary"
+                            (click)="createExpense()"
+                    >Create
+                    </button>
+                    <button
+                            class="btn btn-secondary"
+                            (click)="modalRef.hide()"
+                    >Cancel
+                    </button>
                 </div>
-              </ng-template>
- 
+            </ng-template>
+
         </div>
 
     </mat-drawer>
